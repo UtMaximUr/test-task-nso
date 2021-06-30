@@ -1,1 +1,1 @@
-# AlcoholTrackerApp
+# Test task
