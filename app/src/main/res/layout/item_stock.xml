@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stock"
+            type="com.nso.test.domain.entity.StockEntity" />
+    </data>
+
+    <com.nso.test.ui.custom_view.SwipeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            android:background="@android:color/holo_orange_light"
+            tools:ignore="RtlHardcoded">
+
+            <androidx.appcompat.widget.AppCompatToggleButton
+                android:id="@+id/favorite_button"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/toggle_favorite_bg"
+                android:textOff=""
+                android:textOn="" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/stock_logo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/stock_company"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{stock.name}"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/stock_price"
+                app:layout_constraintStart_toEndOf="@+id/stock_logo"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Productivity Inside" />
+
+            <TextView
+                android:id="@+id/stock_ticker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text="@{stock.ticker}"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/stock_rate"
+                app:layout_constraintStart_toEndOf="@+id/stock_logo"
+                tools:text="PI" />
+
+            <TextView
+                android:id="@+id/stock_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@{stock.price}"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="100.78$" />
+
+            <TextView
+                android:id="@+id/stock_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="@{stock.delta}"
+                android:textColor="@android:color/holo_green_dark"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stock_price"
+                tools:text="1.5%" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteY="49dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.nso.test.ui.custom_view.SwipeLayout>
+</layout>
+

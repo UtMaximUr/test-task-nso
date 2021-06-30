@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TestNSO</string>
+
+    <!-- menu -->
+    <string name="stock_list">Stock list</string>
+    <string name="favorite">Favorite</string>
+    <!-- news -->
+    <string name="news">News</string>
+    <!-- regex -->
+    <string name="date_format_pattern">yyyy-MM-dd</string>
+    <string name="news_not_found">News not found:(</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/commonFragment">
+
+    <fragment
+        android:id="@+id/commonFragment"
+        android:name="com.nso.test.ui.stock_list.common.CommonFragment"
+        android:label="CommonFragment"
+        tools:layout="@layout/fragment_stock_list">
+        <action
+            android:id="@+id/action_commonFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.nso.test.ui.stock_list.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_stock_list">
+        <action
+            android:id="@+id/action_favoriteFragment_to_stockFragment"
+            app:destination="@id/stockFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stockFragment"
+        android:name="com.nso.test.ui.stock.StockFragment"
+        android:label="StockFragment"
+        tools:layout="@layout/fragment_stock" >
+        <action
+            android:id="@+id/action_stockFragment_to_newsWebViewFragment"
+            app:destination="@id/newsWebViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsWebViewFragment"
+        android:name="com.nso.test.ui.news_stock.NewsWebViewFragment"
+        android:label="NewsWebViewFragment"
+        tools:layout="@layout/fragment_web_view"/>
+</navigation>
