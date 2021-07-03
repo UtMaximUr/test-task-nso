@@ -21,6 +21,8 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'API_TOKEN', '"c1b7hcf48v6rcdq9ulk0"'
     }
     buildFeatures {
         viewBinding true

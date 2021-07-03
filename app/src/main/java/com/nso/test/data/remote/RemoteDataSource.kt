@@ -1,10 +1,11 @@
 package com.nso.test.data.remote
 
 import android.util.Log
+import com.nso.test.BuildConfig
+
 import com.nso.test.data.remote.model.CompanyNews
 import com.nso.test.data.remote.model.Stock
 import com.nso.test.data.remote.model.StocksInfo
-import com.nso.test.utils.API_TOKEN
 import com.nso.test.utils.STOCK_EXCHANGE
 import com.nso.test.utils.refactoringCompany
 import io.finnhub.api.apis.DefaultApi
@@ -20,7 +21,7 @@ class RemoteDataSource {
         val listElements: ArrayList<Stock> = ArrayList()
         val apiClient = DefaultApi()
         val stock = Observable.create { subscriber: ObservableEmitter<List<Stock>> ->
-            ApiClient.apiKey["token"] = API_TOKEN
+            ApiClient.apiKey["token"] = BuildConfig.API_TOKEN
             apiClient.indicesConstituents(STOCK_EXCHANGE).constituents?.take(count)
                 ?.forEach { symbol ->
                     val newAny = StocksInfo(
@@ -63,7 +64,7 @@ class RemoteDataSource {
         val listNews: ArrayList<CompanyNews> = ArrayList()
         val apiClient = DefaultApi()
         val news = Observable.create { subscriber: ObservableEmitter<List<CompanyNews>> ->
-            ApiClient.apiKey["token"] = API_TOKEN
+            ApiClient.apiKey["token"] = BuildConfig.API_TOKEN
             apiClient.companyNews(symbol, from, to).forEach {
                 listNews.add(
                     CompanyNews(
