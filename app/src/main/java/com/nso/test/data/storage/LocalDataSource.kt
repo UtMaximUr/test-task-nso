@@ -1,7 +1,6 @@
-package com.nso.test.data.storage.impl
+package com.nso.test.data.storage
 
 
-import com.nso.test.data.remote.model.Stock
 import com.nso.test.data.storage.`object`.StockRealmObject
 import io.realm.Realm
 

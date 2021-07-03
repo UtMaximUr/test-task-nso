@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.nso.test.data.remote.model.CompanyNews
 import com.nso.test.databinding.ItemNewsBinding
+import com.nso.test.domain.entity.CompanyNewsEntity
 import com.nso.test.utils.setImagePath
 
 class NewsAdapter(
-    private val onItemClicked: ((CompanyNews) -> Unit)? = null,
-) : ListAdapter<CompanyNews, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
+    private val onItemClicked: ((CompanyNewsEntity) -> Unit)? = null,
+) : ListAdapter<CompanyNewsEntity, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -37,7 +37,7 @@ class NewsAdapter(
             }
         }
 
-        fun bind(news: CompanyNews) {
+        fun bind(news: CompanyNewsEntity) {
             binding.news = news
             binding.executePendingBindings()
             binding.company.isSelected = true

@@ -3,11 +3,12 @@ package com.nso.test.ui
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.nso.test.data.remote.model.CompanyNews
 import com.nso.test.data.repository.RemoteRepository
 import com.nso.test.data.repository.StorageRepository
+import com.nso.test.domain.entity.CompanyNewsEntity
 import com.nso.test.domain.entity.StockEntity
 import com.nso.test.utils.DEFAULT_COUNT
 
@@ -18,7 +19,7 @@ class SharedViewModel(
 ) : ViewModel() {
 
     val stockData = MutableLiveData<StockEntity>()
-    var newsData: List<CompanyNews>? = null
+    var newsData: List<CompanyNewsEntity>? = null
 
     private var handler: Handler? = null
     private lateinit var runnable: Runnable
@@ -30,6 +31,7 @@ class SharedViewModel(
     fun getStockList(onSuccess: (List<StockEntity>) -> Unit) {
         if (storageRepository.getStockList(onSuccess).isEmpty()) {
             remoteRepository.getStockList(DEFAULT_COUNT) { stockList ->
+                Log.d("=====", "stockList => $stockList")
                 if (!stockList.isNullOrEmpty()) {
                     storageRepository.saveStockList(stockList, onSuccess)
                 }
@@ -59,7 +61,7 @@ class SharedViewModel(
 
     fun getFavoriteList() = storageRepository.getFavoriteStockList()
 
-    fun getNews(symbol: String, from: String, to: String, onSuccess: (List<CompanyNews>) -> Unit) {
+    fun getNews(symbol: String, from: String, to: String, onSuccess: (List<CompanyNewsEntity>) -> Unit) {
         if (newsData == null) {
             remoteRepository.getNews(symbol, from, to) { news ->
                 newsData = news

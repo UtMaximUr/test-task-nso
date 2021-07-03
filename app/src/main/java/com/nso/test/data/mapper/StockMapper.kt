@@ -1,10 +1,10 @@
-package com.nso.test.data.storage.mapper
+package com.nso.test.data.mapper
 
 import com.nso.test.data.remote.model.Stock
 import com.nso.test.data.storage.`object`.StockRealmObject
-import com.nso.test.data.storage.converter.toRealmObjectList
-import com.nso.test.data.storage.converter.toStockEntityList
-import com.nso.test.data.storage.converter.toStockRealmObject
+import com.nso.test.data.extension.toRealmObjectList
+import com.nso.test.data.extension.toStockEntityList
+import com.nso.test.data.extension.toStockRealmObject
 import com.nso.test.domain.entity.StockEntity
 
 class StockMapper {

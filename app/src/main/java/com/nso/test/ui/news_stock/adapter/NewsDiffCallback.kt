@@ -1,14 +1,14 @@
 package com.nso.test.ui.news_stock.adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.nso.test.data.remote.model.CompanyNews
+import com.nso.test.domain.entity.CompanyNewsEntity
 
-class NewsDiffCallback : DiffUtil.ItemCallback<CompanyNews>() {
-    override fun areItemsTheSame(oldItem: CompanyNews, newItem: CompanyNews): Boolean {
+class NewsDiffCallback : DiffUtil.ItemCallback<CompanyNewsEntity>() {
+    override fun areItemsTheSame(oldItem: CompanyNewsEntity, newItem: CompanyNewsEntity): Boolean {
         return (oldItem.id == newItem.id)
     }
 
-    override fun areContentsTheSame(oldItem: CompanyNews, newItem: CompanyNews): Boolean {
+    override fun areContentsTheSame(oldItem: CompanyNewsEntity, newItem: CompanyNewsEntity): Boolean {
         return (oldItem == newItem)
     }
 

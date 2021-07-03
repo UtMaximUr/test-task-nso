@@ -1,4 +1,4 @@
-package com.nso.test.data.storage.converter
+package com.nso.test.data.extension
 
 import com.nso.test.data.remote.model.Stock
 import com.nso.test.data.storage.`object`.StockRealmObject

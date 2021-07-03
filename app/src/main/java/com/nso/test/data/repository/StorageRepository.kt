@@ -2,8 +2,8 @@ package com.nso.test.data.repository
 
 
 import com.nso.test.data.remote.model.Stock
-import com.nso.test.data.storage.impl.LocalDataSource
-import com.nso.test.data.storage.mapper.StockMapper
+import com.nso.test.data.storage.LocalDataSource
+import com.nso.test.data.mapper.StockMapper
 import com.nso.test.domain.entity.StockEntity
 
 class StorageRepository(

@@ -1,4 +1,4 @@
-package com.nso.test.data.remote.impl
+package com.nso.test.data.remote
 
 import android.util.Log
 import com.nso.test.data.remote.model.CompanyNews

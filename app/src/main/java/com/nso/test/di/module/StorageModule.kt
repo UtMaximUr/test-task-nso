@@ -3,8 +3,8 @@ package com.nso.test.di.module
 
 import android.content.Context
 import com.nso.test.data.repository.StorageRepository
-import com.nso.test.data.storage.impl.LocalDataSource
-import com.nso.test.data.storage.mapper.StockMapper
+import com.nso.test.data.storage.LocalDataSource
+import com.nso.test.data.mapper.StockMapper
 import dagger.Module
 import dagger.Provides
 import io.realm.Realm
@@ -39,7 +39,10 @@ class StorageModule(private val context: Context) {
 
     @Singleton
     @Provides
-    fun providesStorageRepository(localDataSource: LocalDataSource, stockMapper: StockMapper): StorageRepository {
+    fun providesStorageRepository(
+        localDataSource: LocalDataSource,
+        stockMapper: StockMapper
+    ): StorageRepository {
         return StorageRepository(localDataSource, stockMapper)
     }
 
